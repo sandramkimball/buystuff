@@ -23,26 +23,51 @@ class ShopProvider extends Component {
         product: {},
         checkout: {},
         isCartOpen: false,
-        test: 'test'
+        test: 'banana pudding'
     }
 
     createCheckout = async () => {
-
+        const checkout = client.checkout.create()
+        .then( checkout => {
+            console.log('Check me out. I\'m a checkout.')
+            this.setState({ checkout: checkout })
+        })
     }
-    addItemToCard = async () => {
 
+    addItemToCart = async () => {
+        const lineItemstoAdd = [{
+            variantId,
+            quantity: parseInt(quantity, 10)
+        }];
+
+        const checkout = await client.checkout.addLineItems(this.state.checkout.id, lineItemsToAdd)
+        this.setState({ checkout: checkout })
+        
     }
+
     fetchAllProducts = async () => {
-
+        const products = await client.product.fetchAll()
+        .then( products => {
+            console.log('Here be the stuff.', products)
+            this.setState({ products: products })
+        })
     }
+
     fetchProductWithId = async () => {
+        const product = await client.product.fetch(id)
+        .then( product => {
+            console.log('Check this thing out.', product)
+            this.setState({ product: product })
+        })
 
     }
-    closeCard = () => {
-        this.state.isCartOpen = false
+
+    closeCart = () => {
+        this.setState({isCartOpen: false})
     }
-    openCard = () => {
-        this.state.isCartOpen = true
+    
+    openCart = () => {
+        this.setState({isCartOpen: true})
     }
 
     render() {
