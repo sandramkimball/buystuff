@@ -9421,7 +9421,7 @@ react-dev-utils@^10.2.1:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@16.13.1:
+react-dom@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -9501,7 +9501,7 @@ react-scripts@3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
-react@16.13.1:
+react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -10239,6 +10239,11 @@ shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
+
+shopify-buy@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-2.10.0.tgz#ed5e434e6f9b11de6626f5dfe8dc6a01a6f6a607"
+  integrity sha512-ZusCW1qxnlXrEqeeo3OoK7DbkAhppSrzhHHtDbOMpZXj91WEPZr8vQG9+IbeQXq/j+H3/wpzOJ+kF3WGrsDB7w==
 
 side-channel@^1.0.2:
   version "1.0.2"
