@@ -27,7 +27,7 @@ function App() {
           <NavBar/>
           <Switch>
             <Route path='/' component={HomePage}/>
-            <Route path='/product' component={ProductPage}/>
+            <Route path='/product/:id' component={ProductPage}/>
           </Switch>
         </Router>
       </Styletron>

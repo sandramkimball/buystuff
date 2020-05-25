@@ -65,14 +65,22 @@ class ShopProvider extends Component {
     closeCart = () => {
         this.setState({isCartOpen: false})
     }
-    
+
     openCart = () => {
         this.setState({isCartOpen: true})
     }
 
     render() {
         return (
-            <ShopContext.Provider value={{...this.state}}>
+            <ShopContext.Provider value={{
+                ...this.state,
+                fetchAllProducts: this.fetchAllProducts,
+                fetchProductWithId: this.fetchProductWithId,
+                createCheckout: this.createCheckout,
+                addItemToCart: this.addItemToCart,
+                closeCart: this.closeCart,
+                openCart: this.openCart
+            }}>
                 {this.props.children}
             </ShopContext.Provider>
         )
