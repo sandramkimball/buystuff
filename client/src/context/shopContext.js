@@ -1,4 +1,4 @@
-import react, {Component} from 'react'
+import React, {Component} from 'react'
 import Client from 'shopify-buy';
 
 
@@ -10,12 +10,6 @@ const client = Client.buildClient({
     storefrontAccessToken: 'your-storefront-access-token'
 });
   
-// Initializing a client to return translated content
-// const clientWithTranslatedContent = Client.buildClient({
-//     domain: 'your-shop-name.myshopify.com',
-//     storefrontAccessToken: 'your-storefront-access-token',
-//     language: 'ja-JP'
-// });
 
 class ShopProvider extends Component {
     state = {
@@ -23,15 +17,31 @@ class ShopProvider extends Component {
         product: {},
         checkout: {},
         isCartOpen: false,
-        test: 'banana pudding'
+    }
+
+    componentDidMount(){
+        // Check localstorage for saved checkout_id 
+        // If no checkout_id, then create new checkout
+        // Else fetch checkout from Shopify
+        if(localStorage.checkout){
+            this.fetchCheckout(localStorage.checkout)
+        } else{
+            this.createCheckout
+        }
     }
 
     createCheckout = async () => {
         const checkout = client.checkout.create()
+        localStorage.setItem('checkout', checkout)
+        await this.setState({ checkout: checkout })
+    }
+
+    fetchCheckout = async (checkoutId) => {
+        client.checkout.fetch(checkoutId)
         .then( checkout => {
-            console.log('Check me out. I\'m a checkout.')
             this.setState({ checkout: checkout })
         })
+        .catch( err => console.log(err))
     }
 
     addItemToCart = async () => {
