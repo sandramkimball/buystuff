@@ -6,7 +6,7 @@ import { Text, Div, Button, Row, Col, Container } from 'atomize';
 const ProductPage = () => {
 
     let {id} = useParams();
-    const { fetchProductWithId, addItemToCheckout, product } = useContext(ShopContext);
+    const { fetchProductWithId, addItemToCheckout, product, openCart } = useContext(ShopContext);
 
     useEffect(()=> {
         fetchProductWithId(id)
@@ -25,7 +25,12 @@ const ProductPage = () => {
                 <Col>
                     <Text>{product.title}</Text>
                     <Text>${product.variants[0].price}</Text>
-                    <Button onClick={()=>addItemToCheckout(product.variants[0].id, 1)}>Add To Cart</Button>
+                    <Button onClick={()=>
+                        addItemToCheckout(product.variants[0].id, 1),
+                        openCart()
+                    }>
+                            Add To Cart
+                    </Button>
                 </Col>
             </Row>
         </Container>

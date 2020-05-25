@@ -6,10 +6,10 @@ import { Client as Styletron } from "styletron-engine-atomic";
 // Pages
 import HomePage from '../pages/HomePage';
 import ProductPage from '../pages/ProductPage';
-import NavBar from '../pages/NavBar';
+import NavBar from '../components/NavBar';
+import Cart from '../components/Cart';
 
-// Context
-import ShopContext from '../context/shopContext';
+// Context Provider
 import ShopProvider from '../context/shopContext';
 
 const debug =
