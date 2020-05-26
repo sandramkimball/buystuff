@@ -13,12 +13,12 @@ const HomePage = () => {
         }
     }, [fetchAllProducts])
 
-    if (!products) return <div>loading...</div>
+    if (!products) return(<div>loading...</div>)
 
-    return (
+    return(
         <Container>
             <Row>
-                {products.map(product=> {
+                {products.map( product => (
                     <Col key={product.id} size='3'>
                         <Link to={`/product/${product.id}`}>
                             <Div p='2rem'>
@@ -33,7 +33,7 @@ const HomePage = () => {
                             </Div>
                         </Link>
                     </Col>
-                })}
+                ))}
             </Row>
         </Container>
     )

@@ -26,7 +26,7 @@ class ShopProvider extends Component {
         if(localStorage.checkout){
             this.fetchCheckout(localStorage.checkout)
         } else{
-            this.createCheckout
+            this.createCheckout()
         }
     }
 
@@ -44,15 +44,17 @@ class ShopProvider extends Component {
         .catch( err => console.log(err))
     }
 
-    addItemToCart = async () => {
+    addItemToCart = async (variantId, quantity) => {
         const lineItemstoAdd = [{
             variantId,
             quantity: parseInt(quantity, 10)
         }];
 
-        const checkout = await client.checkout.addLineItems(this.state.checkout.id, lineItemsToAdd)
+        const checkout = await client.checkout.addLineItems(
+            this.state.checkout.id, 
+            lineItemstoAdd
+        );
         this.setState({ checkout: checkout })
-        
     }
 
     fetchAllProducts = async () => {
@@ -63,7 +65,7 @@ class ShopProvider extends Component {
         })
     }
 
-    fetchProductWithId = async () => {
+    fetchProductWithId = async (id) => {
         const product = await client.product.fetch(id)
         .then( product => {
             console.log('Check this thing out.', product)
@@ -97,5 +99,5 @@ class ShopProvider extends Component {
     }
 }
 
-export { ShopContext, ShopContext }
+export { ShopContext }
 export default ShopProvider;
