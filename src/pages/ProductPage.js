@@ -25,10 +25,10 @@ const ProductPage = () => {
                 <Col>
                     <Text>{product.title}</Text>
                     <Text>${product.variants[0].price}</Text>
-                    <Button onClick={()=>
-                        addItemToCheckout(product.variants[0].id, 1),
+                    <Button onClick={()=>{
+                        addItemToCheckout(product.variants[0].id, 1)
                         openCart()
-                    }>
+                    }}>
                             Add To Cart
                     </Button>
                 </Col>

@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import Client from 'shopify-buy';
+import DummyData from '../Data.json';
 
 
 const ShopContext = React.createContext()
 
 // Initializing a client to return content in the store's primary language
 const client = Client.buildClient({
-    domain: 'buystuff.myshopify.com',
-    storefrontAccessToken: 'your-storefront-access-token'
+    domain: 'cicisstuff.myshopify.com',
+    storefrontAccessToken: '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'
 });
   
 
@@ -58,20 +59,13 @@ class ShopProvider extends Component {
     }
 
     fetchAllProducts = async () => {
-        const products = await client.product.fetchAll()
-        .then( products => {
-            console.log('Here be the stuff.', products)
-            this.setState({ products: products })
-        })
+        // const products = await client.product.fetchAll()
+        this.setState({ products: DummyData })
     }
 
     fetchProductWithId = async (id) => {
         const product = await client.product.fetch(id)
-        .then( product => {
-            console.log('Check this thing out.', product)
-            this.setState({ product: product })
-        })
-
+        this.setState({ product: product })
     }
 
     closeCart = () => {
