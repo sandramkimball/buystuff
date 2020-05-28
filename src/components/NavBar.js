@@ -7,7 +7,7 @@ const NavBar = () => {
     const { openCart } = useContext(ShopContext)
 
     return (
-        <Container d='flex' flexDir='row' p='2rem' justify='space-evenly'>
+        <Container d='flex' flexDir='row' p='2rem'justify='space-evenly' textColor="black500">
             <Link to='/'>Shop</Link>
             <Anchor onClick={()=> openCart()}>
                 <Icon name="Bag" size="20px" color="black500" />

@@ -21,9 +21,6 @@ class ShopProvider extends Component {
     }
 
     componentDidMount(){
-        // Check localstorage for saved checkout_id 
-        // If no checkout_id, then create new checkout
-        // Else fetch checkout from Shopify
         if(localStorage.checkout){
             this.fetchCheckout(localStorage.checkout)
         } else{
@@ -32,14 +29,15 @@ class ShopProvider extends Component {
     }
 
     createCheckout = async () => {
-        const checkout = client.checkout.create()
-        localStorage.setItem('checkout', checkout)
+        const checkout = await client.checkout.create()
+        localStorage.setItem('checkout', checkout.id)
         await this.setState({ checkout: checkout })
     }
 
     fetchCheckout = async (checkoutId) => {
-        client.checkout.fetch(checkoutId)
-        .then( checkout => {
+        client.checkout
+        .fetch(checkoutId)
+        .then( (checkout) => {
             this.setState({ checkout: checkout })
         })
         .catch( err => console.log(err))
@@ -56,6 +54,7 @@ class ShopProvider extends Component {
             lineItemstoAdd
         );
         this.setState({ checkout: checkout })
+        this.openCart()
     }
 
     fetchAllProducts = async () => {
@@ -64,16 +63,19 @@ class ShopProvider extends Component {
     }
 
     fetchProductWithId = async (id) => {
-        const product = await client.product.fetch(id)
-        this.setState({ product: product })
+        // const product = await client.product.fetch(id)
+        const products = DummyData
+        this.setState({ product: products[id] })
     }
 
     closeCart = () => {
         this.setState({isCartOpen: false})
+        console.log('close cart')
     }
 
     openCart = () => {
         this.setState({isCartOpen: true})
+        console.log('open cart')
     }
 
     render() {
@@ -82,7 +84,6 @@ class ShopProvider extends Component {
                 ...this.state,
                 fetchAllProducts: this.fetchAllProducts,
                 fetchProductWithId: this.fetchProductWithId,
-                createCheckout: this.createCheckout,
                 addItemToCart: this.addItemToCart,
                 closeCart: this.closeCart,
                 openCart: this.openCart
@@ -92,6 +93,6 @@ class ShopProvider extends Component {
         )
     }
 }
-
-export { ShopContext }
+const ShopConsumer = ShopContext.Consumer;
+export { ShopConsumer, ShopContext }
 export default ShopProvider;

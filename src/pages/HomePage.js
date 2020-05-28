@@ -8,31 +8,26 @@ const HomePage = () => {
 
     useEffect(()=> {
         fetchAllProducts()
-        console.log('Banana Pudding?')
-        return () => {
-
-        }
     }, [fetchAllProducts])
 
-    if (!products) return(<div>No products today.</div>)
+    if (!products) return(<div>Sorry. We currently have no available tours scheduled.</div>)
 
     return(
         <Container>
+            <Text textSize='36px' textAlign='center'>Snorkeling Tours</Text>
             <Row>
                 {products.map( product => (
-                    <Col key={product.id} size='3'>
-                        <Link to={`/product/${product.id}`}>
-                            <Div p='2rem' textAlign='center' textDecor='none' textColor='#000'>
+                    <Col key={product.id} size='4'>
+                        <Link to={`/packages/${product.id}`} id={product.id} key={product.id}>
+                            <Div p='2rem' textAlign='center' textColor='black500'>
                                 <Div
                                     h='20rem'
-                                    // bgImg={"https://natgeo.imgix.net/factsheets/thumbnails/HEADER_Stingray.jpg?auto=compress,format&w=1600&h=900&fit=crop"}
                                     bgImg={product.images[0].src}
                                     bgSize="cover"
                                     bgPos="center center"
                                 />
-                                <Text>{product.title}</Text>
+                                <Text textSize='20px' p='2px' >{product.title}</Text>
                                 <Text >{product.description}</Text>
-                                {/* <Text>{product.variants[0].src}</Text> */}
                             </Div>
                         </Link>
                     </Col>

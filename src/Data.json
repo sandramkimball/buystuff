@@ -1,55 +1,47 @@
 [
     {
-        "id": "000",
+        "id": "0",
         "title": "Stingray Snorkeling Package",
         "images": [
             {"src": "https://natgeo.imgix.net/factsheets/thumbnails/HEADER_Stingray.jpg?auto=compress,format&w=1600&h=900&fit=crop"}
         ],
-        "description": "A fruit.",
-        "variants" : [ 
-        ]
+        "description": "Feed the graceful rays in a secret cove.",
+        "price" : 75
     },
     {
-        "id": "001",
+        "id": "1",
         "title": "Shark Diving Package",
         "description": "Meet hammerheads and other passive sharks.",
         "images": [
             {"src": "https://cdn.extra.ie/wp-content/uploads/2019/07/20112552/hh-shark-2.jpg"}
         ],
-        "variants" : [
-            
-        ]
+        "price" : 360
     },
     {
-        "id": "002",
+        "id": "2",
         "title": "Coral Reef Snorkeling Package",
         "description": "Experience a vibrant ecosystem.",
         "images": [
             {"src": "http://images.fineartamerica.com/images/artworkimages/mediumlarge/1/tropical-fishes-of-maui-janis-knight.jpg"}
         ],
-        "variants" : [
-        ]
+        "price" : 50
     },
     {
-        "id": "003",
+        "id": "3",
         "title": "Dolphin Kayak Package",
         "description": "We'll tour the bay looking for dolphins.",
         "images": [
             {"src": "https://blog.padi.com/wp-content/uploads/2017/04/shutterstock_366792137-1024x683.jpg"}
         ],
-        "variants" : [
-            
-        ]
+        "price" : 175
     },
     {
-        "id": "004",
+        "id": "4",
         "title": "Sea Turtle Gathering Package",
         "description": "Hang out in the cove with the sea turtles.",
         "images": [
             {"src": "https://www.marinediscoverycenter.org/wp-content/uploads/2017/12/sea-turtle.jpg"}
         ],
-        "variants" : [
-            
-        ]
+        "price" : 50
     }
 ]

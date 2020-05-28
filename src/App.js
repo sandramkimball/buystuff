@@ -28,8 +28,8 @@ function App() {
           <NavBar/>
           <Cart/>
           <Switch>
-            <Route path='/' component={HomePage}/>
-            <Route path='/product/:id' component={ProductPage}/>
+            <Route exact path='/'><HomePage/></Route>
+            <Route path='/packages/:id'><ProductPage/></Route>
           </Switch>
         </Router>
       </StyletronProvider>

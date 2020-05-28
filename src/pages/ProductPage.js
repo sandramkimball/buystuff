@@ -6,16 +6,13 @@ import { Text, Div, Button, Row, Col, Container } from 'atomize';
 const ProductPage = () => {
 
     let {id} = useParams();
-    const { fetchProductWithId, addItemToCheckout, product, openCart } = useContext(ShopContext);
+    const { fetchProductWithId, addItemToCart, product, openCart } = useContext(ShopContext);
 
     useEffect(()=> {
-        fetchProductWithId(id)
-        return ()=> {
-
-        }
+        fetchProductWithId(id)        
     }, [fetchProductWithId, id])
 
-    if(!product.title) return <div>loading...</div>
+    if(!product.title) return <div>Loading...</div>
     return (
         <Container>
             <Row>
@@ -24,9 +21,9 @@ const ProductPage = () => {
                 </Col>
                 <Col>
                     <Text>{product.title}</Text>
-                    <Text>${product.variants[0].price}</Text>
+                    <Text>${product.price}</Text>
                     <Button onClick={()=>{
-                        addItemToCheckout(product.variants[0].id, 1)
+                        addItemToCart(product.id, 1)
                         openCart()
                     }}>
                             Add To Cart
